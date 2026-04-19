@@ -10,9 +10,17 @@ function App() {
 
   return (
     <>
-      <Card>{JSON.stringify(data?.current)}</Card>
-      <Card>{JSON.stringify(data?.hourly)}</Card>
-      <Card>{JSON.stringify(data?.daily)}</Card>
+      <div className="flex flex-col gap-8">
+        <Card title="Current Weather">
+          {JSON.stringify(data?.current).slice(0, 100)}
+        </Card>
+        <Card title="Hourly Forecast (48 Hours)">
+          {JSON.stringify(data?.hourly).slice(0, 100)}
+        </Card>
+        <Card title="Daily Forecast">
+          {JSON.stringify(data?.daily).slice(0, 100)}
+        </Card>
+      </div>
     </>
   );
 }
