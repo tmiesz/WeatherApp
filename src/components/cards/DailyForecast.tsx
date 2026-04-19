@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Card from "./Card";
 import { getWeather } from "../../api";
-import { getWeatherLabel } from "../../utils/weatherCode";
+import WeatherIcon from "../WeatherIcon";
 
 export default function DailyForecast() {
   const { data } = useSuspenseQuery({
@@ -18,7 +18,7 @@ export default function DailyForecast() {
                 weekday: "long",
               })}
             </p>
-            <p>{getWeatherLabel(data.daily.weather_code[i])}</p>
+            <WeatherIcon code={data.daily.weather_code[i]} />
             <p>
               {Math.round(data.daily.temperature_2m_mean[i])}
               {data.daily_units.temperature_2m_mean}
