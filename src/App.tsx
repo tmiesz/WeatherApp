@@ -8,18 +8,15 @@ function App() {
     queryKey: ["weather"],
     queryFn: () => getWeather({ lat: 50, lon: 50 }),
   });
-
   return (
     <>
-      <div className="flex flex-col gap-8">
-        <Card title="Current Weather">
-          {JSON.stringify(data?.current).slice(0, 100)}
-        </Card>
-        <Card title="Hourly Forecast (48 Hours)">
-          {JSON.stringify(data?.hourly).slice(0, 100)}
-        </Card>
-        <DailyForecast />
-      </div>
+      <Card title="Current Weather">
+        {JSON.stringify(data?.current).slice(0, 100)}
+      </Card>
+      <Card title="Hourly Forecast (48 Hours)">
+        {JSON.stringify(data?.hourly).slice(0, 100)}
+      </Card>
+      <DailyForecast />
     </>
   );
 }
