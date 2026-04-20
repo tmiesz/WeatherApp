@@ -14,6 +14,9 @@ export const weatherSchema = z.object({
     interval: z.string(),
     temperature_2m: z.string(),
     weather_code: z.string(),
+    apparent_temperature: z.string(),
+    relative_humidity_2m: z.string(),
+    wind_speed_10m: z.string(),
   }),
 
   current: z.object({
@@ -21,6 +24,9 @@ export const weatherSchema = z.object({
     interval: z.number(),
     temperature_2m: z.number(),
     weather_code: z.number(),
+    apparent_temperature: z.number(),
+    relative_humidity_2m: z.number(),
+    wind_speed_10m: z.number(),
   }),
 
   hourly_units: z.object({
@@ -30,7 +36,7 @@ export const weatherSchema = z.object({
   }),
 
   hourly: z.object({
-    time: z.array(z.string()), // ISO datetime[]
+    time: z.array(z.string()),
     temperature_2m: z.array(z.number()),
     weather_code: z.array(z.number()),
   }),
