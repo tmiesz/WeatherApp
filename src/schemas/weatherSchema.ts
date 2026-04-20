@@ -47,6 +47,12 @@ export const weatherSchema = z.object({
     temperature_2m_min: z.string(),
     temperature_2m_max: z.string(),
     weather_code: z.string(),
+    uv_index_max: z.string(),
+    sunrise: z.string(),
+    sunset: z.string(),
+    cloud_cover_mean: z.string(),
+    pressure_msl_mean: z.string(),
+    wind_direction_10m_dominant: z.string(),
   }),
 
   daily: z.object({
@@ -55,5 +61,11 @@ export const weatherSchema = z.object({
     temperature_2m_min: z.array(z.number()),
     temperature_2m_max: z.array(z.number()),
     weather_code: z.array(z.number()),
+    uv_index_max: z.array(z.number()),
+    sunrise: z.array(z.string()),
+    sunset: z.array(z.string()),
+    cloud_cover_mean: z.array(z.number()),
+    pressure_msl_mean: z.array(z.number()),
+    wind_direction_10m_dominant: z.array(z.number()),
   }),
 });
