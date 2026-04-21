@@ -9,9 +9,13 @@ import { useState } from "react";
 function App() {
   const [coords, setCoords] = useState<Coords>({ lat: 50, lon: 50 });
 
+  const onMapClick = (lat: number, lon: number) => {
+    setCoords({ lat, lon });
+  };
+
   return (
     <div className="flex flex-col gap-8">
-      <Map coords={coords} />
+      <Map coords={coords} onMapClick={onMapClick} />
       <CurrentWeather coords={coords} />
       <HourlyForecast coords={coords} />
       <DailyForecast coords={coords} />
