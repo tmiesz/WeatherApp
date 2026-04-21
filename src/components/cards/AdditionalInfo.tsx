@@ -7,6 +7,7 @@ import Sunrise from "/src/assets/sunrise.svg?react";
 import Sunset from "/src/assets/sunset.svg?react";
 import Uv from "/src/assets/uv.svg?react";
 import Wind from "/src/assets/wind.svg?react";
+import Direction from "/src/assets/direction.svg?react";
 
 export default function AdditionalInfo() {
   const { data } = useSuspenseQuery({
@@ -27,7 +28,9 @@ export default function AdditionalInfo() {
           </div>
           <span>
             <FormatComponent value={value} number={data.daily[value][0]} />
-            {data.daily_units[value] !== "iso8601" && data.daily_units[value]}
+            {data.daily_units[value] !== "iso8601" &&
+              data.daily_units[value] !== "°" &&
+              data.daily_units[value]}
           </span>
         </div>
       ))}
@@ -48,6 +51,14 @@ function FormatComponent({
       minute: "numeric",
       hour12: false,
     });
+  }
+  if (value === "wind_direction_10m_dominant") {
+    return (
+      <Direction
+        className="size-8 invert"
+        style={{ transform: `rotate(${number}deg)` }}
+      />
+    );
   }
   return number;
 }
