@@ -1,6 +1,12 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Card from "./Card";
 import { getWeather } from "../../api";
+import Cloud from "/src/assets/cloud.svg?react";
+import Pressure from "/src/assets/pressure.svg?react";
+import Sunrise from "/src/assets/sunrise.svg?react";
+import Sunset from "/src/assets/sunset.svg?react";
+import Uv from "/src/assets/uv.svg?react";
+import Wind from "/src/assets/wind.svg?react";
 
 export default function AdditionalInfo() {
   const { data } = useSuspenseQuery({
@@ -13,9 +19,12 @@ export default function AdditionalInfo() {
       title="Additional Weather Info"
       childrenClassName="flex flex-col gap-8"
     >
-      {rows.map(({ label, value }) => (
+      {rows.map(({ label, value, Icon }) => (
         <div className="flex justify-between" key={value}>
-          <span className="text-gray-500">{label}</span>
+          <div className="flex gap-4">
+            <span className="text-gray-500">{label}</span>
+            <Icon className="size-8 invert" />
+          </div>
           <span>
             <FormatComponent value={value} number={data.daily[value][0]} />
             {data.daily_units[value] !== "iso8601" && data.daily_units[value]}
@@ -44,10 +53,10 @@ function FormatComponent({
 }
 
 const rows = [
-  { label: "Cloudiness", value: "cloud_cover_mean" },
-  { label: "UV Index", value: "uv_index_max" },
-  { label: "Wind Direction", value: "wind_direction_10m_dominant" },
-  { label: "Pressure", value: "pressure_msl_mean" },
-  { label: "Sunrise", value: "sunrise" },
-  { label: "Sunset", value: "sunset" },
+  { label: "Cloudiness", value: "cloud_cover_mean", Icon: Cloud },
+  { label: "UV Index", value: "uv_index_max", Icon: Uv },
+  { label: "Wind Direction", value: "wind_direction_10m_dominant", Icon: Wind },
+  { label: "Pressure", value: "pressure_msl_mean", Icon: Pressure },
+  { label: "Sunrise", value: "sunrise", Icon: Sunrise },
+  { label: "Sunset", value: "sunset", Icon: Sunset },
 ] as const;
