@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="flex flex-col gap-8">
-      <Map />
+      <Map coords={coords} />
       <CurrentWeather coords={coords} />
       <HourlyForecast coords={coords} />
       <DailyForecast coords={coords} />
