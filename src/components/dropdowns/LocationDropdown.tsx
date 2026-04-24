@@ -1,3 +1,4 @@
+import type { Dispatch, SetStateAction } from "react";
 import Dropdown from "../ui/Dropdown";
 
 const cities = [
@@ -15,13 +16,18 @@ const cities = [
   "Amsterdam",
 ];
 
-export default function LocationDropdown() {
+type Props = {
+  location: string;
+  setLocation: Dispatch<SetStateAction<string>>;
+};
+
+export default function LocationDropdown({ setLocation }: Props) {
   return (
     <Dropdown
       buttonLabel="Choose a location"
       items={cities.map((city) => ({
         title: city,
-        action: () => console.log({ city }),
+        action: () => setLocation(city),
       }))}
     ></Dropdown>
   );
