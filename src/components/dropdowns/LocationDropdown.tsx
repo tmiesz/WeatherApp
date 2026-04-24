@@ -21,10 +21,10 @@ type Props = {
   setLocation: Dispatch<SetStateAction<string>>;
 };
 
-export default function LocationDropdown({ setLocation }: Props) {
+export default function LocationDropdown({ location, setLocation }: Props) {
   return (
     <Dropdown
-      buttonLabel="Choose a location"
+      buttonLabel={location}
       items={cities.map((city) => ({
         title: city,
         action: () => setLocation(city),
