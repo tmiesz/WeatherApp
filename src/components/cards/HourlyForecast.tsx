@@ -19,7 +19,7 @@ export default function HourlyForecast({ coords }: Props) {
       childrenClassName="flex gap-6 overflow-x-scroll"
     >
       {data.hourly.time.slice(0, 48).map((hour, i) => (
-        <div className="flex flex-col gap-2 items-center p-2">
+        <div key={hour} className="flex flex-col gap-2 items-center p-2">
           <p className="whitespace-nowrap">
             {new Date(hour).toLocaleTimeString(undefined, {
               hour: "numeric",
