@@ -9,7 +9,7 @@ export default function CurrentSkeleton() {
     >
       <div className="flex flex-col gap-2 items-center">
         <Skeleton className="w-30 h-15" />
-        <Skeleton className="size-14 rounded-full" />
+        <Skeleton className="size-11 rounded-ful" />
         <Skeleton className="w-36 h-7" />
       </div>
       <div className="flex flex-col gap-2">

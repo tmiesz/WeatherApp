@@ -9,9 +9,9 @@ export default function HourlySkeleton() {
     >
       {Array.from({ length: 48 }).map((_, i) => (
         <div key={i} className="flex flex-col gap-2 items-center p-2">
-          <Skeleton className="w-15 size-8" />
-          <Skeleton className="size-8 rounded-full" />
-          <Skeleton className="w-8 h-6" />
+          <Skeleton className="w-14 size-8" />
+          <Skeleton className="size-5 rounded-full" />
+          <Skeleton className="w-6 h-4" />
         </div>
       ))}
     </Card>
