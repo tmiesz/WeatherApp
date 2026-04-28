@@ -1,5 +1,6 @@
-import { weatherSchema } from "./schemas/weatherSchema";
-import { geoCodeSchema } from "./schemas/geoCodeSchema";
+import { WeatherSchema } from "./schemas/WeatherSchema";
+import { GeoCodeSchema } from "./schemas/GeoCodeSchema";
+import { AirPollutionSchema } from "./schemas/AirPollutionSchema";
 
 export async function getWeather({ lat, lon }: { lat: number; lon: number }) {
   const res = await fetch(
@@ -7,7 +8,7 @@ export async function getWeather({ lat, lon }: { lat: number; lon: number }) {
   );
   const data = await res.json();
 
-  return weatherSchema.parse(data);
+  return WeatherSchema.parse(data);
 }
 
 export async function getGeoCode(city: string) {
@@ -16,5 +17,20 @@ export async function getGeoCode(city: string) {
   );
   const data = await res.json();
 
-  return geoCodeSchema.parse(data.results);
+  return GeoCodeSchema.parse(data.results);
+}
+
+export async function getAirPollution({
+  lat,
+  lon,
+}: {
+  lat: number;
+  lon: number;
+}) {
+  const res = await fetch(
+    `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,ozone,carbon_monoxide,nitrogen_monoxide,sulphur_dioxide,ammonia&forecast_hours=1`,
+  );
+  const data = await res.json();
+
+  return AirPollutionSchema.parse(data);
 }
