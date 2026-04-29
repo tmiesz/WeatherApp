@@ -10,7 +10,7 @@ type Props = {
 
 export default function SidePanel(props: Props) {
   return (
-    <div className="fixed top-0 right-0 h-screen w-80 shadow-md bg-zinc-900 z-1001">
+    <div className="fixed top-0 right-0 h-screen w-80 shadow-md bg-zinc-900 z-1001 py-8 px-4">
       <Suspense>
         <AirPollution {...props} />
       </Suspense>
@@ -28,9 +28,7 @@ function AirPollution({ coords }: Props) {
   );
   return (
     <div className="flex flex-col gap-4 items-center">
-      <h1 className="text-5xl font-semibold">
-        {data.hourly.pm2_5[0]} {data.hourly_units.pm2_5}
-      </h1>
+      <h1 className="text-4xl font-semibold">Air Pollution</h1>
 
       {pollutants.map(([key, values]) => {
         const currentValue = values[0];
