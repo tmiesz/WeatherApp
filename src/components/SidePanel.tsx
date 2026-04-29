@@ -38,8 +38,10 @@ function AirPollution({ coords }: Props) {
 
         return (
           <Card key={key}>
-            <div className="flex justify-between">
-              <span className="text-lg font-bold">{key}</span>
+            <div className="flex gap-2">
+              <span className="text-lg capitalize">
+                {key.replace("2_5", "2.5").replace("_", " ")}
+              </span>
               <span className="text-lg font-semibold">
                 {currentValue ?? "N/A"} {currentValue != null ? unit : ""}
               </span>
