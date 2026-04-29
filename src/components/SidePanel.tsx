@@ -37,7 +37,7 @@ function AirPollution({ coords }: Props) {
         return (
           <Card
             key={key}
-            className="w-full text-center hover:scale-105 transition-transform duration-300 from-zinc-600! to-zinc-900/60! "
+            className="w-full text-center hover:scale-105 transition-transform duration-300 from-zinc-800! to-zinc-900/60! "
           >
             <div className="flex justify-between">
               <span className="text-lg capitalize">
