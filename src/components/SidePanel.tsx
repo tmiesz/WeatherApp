@@ -35,8 +35,11 @@ function AirPollution({ coords }: Props) {
         const unit = data.hourly_units[key as keyof typeof data.hourly_units];
 
         return (
-          <Card key={key}>
-            <div className="flex gap-2">
+          <Card
+            key={key}
+            className="w-full text-center hover:scale-105 transition-transform duration-300 from-zinc-600! to-zinc-900/60! "
+          >
+            <div className="flex justify-between">
               <span className="text-lg capitalize">
                 {key.replace("2_5", "2.5").replace("_", " ")}
               </span>

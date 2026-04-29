@@ -4,13 +4,24 @@ import type { ReactNode } from "react";
 type Props = {
   children: ReactNode;
   title?: string;
+  className?: string;
   childrenClassName?: string;
 };
 
-export default function Card({ children, title, childrenClassName }: Props) {
+export default function Card({
+  children,
+  title,
+  className,
+  childrenClassName,
+}: Props) {
   return (
-    <div className="p-4 rounded-xl  bg-linear-to-br from-zinc-900 to-zinc-900/60 shadow-md flex flex-col gap-4">
-      <h2 className="text-2xl font-semibold">{title}</h2>
+    <div
+      className={clsx(
+        "p-4 rounded-xl  bg-linear-to-br from-zinc-900 to-zinc-900/60 shadow-md flex flex-col gap-4",
+        className,
+      )}
+    >
+      {title && <h2 className="text-2xl font-semibold">{title}</h2>}
       <div
         className={clsx(
           childrenClassName,
