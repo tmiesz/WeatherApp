@@ -15,7 +15,7 @@ export default function DailyForecast({ coords }: Props) {
   });
   return (
     <Card title="Daily Forecast" childrenClassName="flex flex-col gap-8">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-8">
         {data.daily.time.map((time, i) => (
           <div key={time} className="flex justify-between">
             <p className="w-9">
