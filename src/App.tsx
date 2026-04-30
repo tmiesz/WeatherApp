@@ -15,11 +15,13 @@ import DailySkeleton from "./components/skeletons/DailySkeleton";
 import HourlySkeleton from "./components/skeletons/HourlySkeleton";
 import AddiotionalInfoSkeleton from "./components/skeletons/AdditionalInfoSkeleton";
 import SidePanel from "./components/SidePanel";
+import Hamburger from "/src/assets/hamburger.svg?react";
 
 function App() {
   const [coordinates, setCoords] = useState<Coords>({ lat: 50, lon: 50 });
   const [location, setLocation] = useState("Tokyo");
   const [mapType, setMapType] = useState<string | null>(null);
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(true);
 
   const { data: geoCodeData } = useQuery({
     queryKey: ["geoCode", location],
@@ -51,6 +53,9 @@ function App() {
             <h1 className="text-2xl font-semibold">Overlay: </h1>
             <MapTypeDropdown mapType={mapType} setMapType={setMapType} />
           </div>
+          <button onClick={() => setIsSidePanelOpen(true)}>
+            <Hamburger className="size-8 invert" />
+          </button>
         </div>
         <div className="relative">
           <Map coords={coords} onMapClick={onMapClick} mapType={mapType} />
@@ -69,7 +74,11 @@ function App() {
           <AdditionalInfo coords={coords} />
         </Suspense>
       </div>
-      <SidePanel coords={coords} />
+      <SidePanel
+        coords={coords}
+        isSidePanelOpen={isSidePanelOpen}
+        setIsSidePanelOpen={setIsSidePanelOpen}
+      />
     </>
   );
 }

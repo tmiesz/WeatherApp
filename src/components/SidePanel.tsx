@@ -1,18 +1,30 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { Suspense, type Dispatch, type SetStateAction } from "react";
 import { getAirPollution } from "../api";
 import type { Coords } from "../types";
 import Card from "./cards/Card";
 import Slider from "./ui/Slider";
 import clsx from "clsx";
+import Chevron from "/src/assets/chevron.svg?react";
 
 type Props = {
   coords: Coords;
+  isSidePanelOpen: boolean;
+  setIsSidePanelOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function SidePanel(props: Props) {
+  const { isSidePanelOpen, setIsSidePanelOpen } = props;
   return (
-    <div className="fixed top-0 right-0 h-screen w-80 shadow-md bg-zinc-900 z-1001 py-8 px-4 flex flex-col">
+    <div
+      className={clsx(
+        "fixed top-0 right-0 h-screen w-80 shadow-md bg-zinc-900 z-1001 py-8 px-4 flex flex-col transition-transform duration-300",
+        isSidePanelOpen ? "translate-x-0" : "translate-x-full",
+      )}
+    >
+      <button onClick={() => setIsSidePanelOpen(false)}>
+        <Chevron className="size-8 invert" />
+      </button>
       <Suspense>
         <AirPollution {...props} />
       </Suspense>
