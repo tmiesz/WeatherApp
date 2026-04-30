@@ -16,6 +16,7 @@ import HourlySkeleton from "./components/skeletons/HourlySkeleton";
 import AddiotionalInfoSkeleton from "./components/skeletons/AdditionalInfoSkeleton";
 import SidePanel from "./components/SidePanel";
 import Hamburger from "/src/assets/hamburger.svg?react";
+import SidePanelSkeleton from "./components/skeletons/SidePanelSkeleton";
 
 function App() {
   const [coordinates, setCoords] = useState<Coords>({ lat: 50, lon: 50 });

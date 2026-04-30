@@ -6,6 +6,7 @@ import Card from "./cards/Card";
 import Slider from "./ui/Slider";
 import clsx from "clsx";
 import Chevron from "/src/assets/chevron.svg?react";
+import SidePanelSkeleton from "./skeletons/SidePanelSkeleton";
 
 type Props = {
   coords: Coords;
@@ -25,7 +26,7 @@ export default function SidePanel(props: Props) {
       <button onClick={() => setIsSidePanelOpen(false)}>
         <Chevron className="size-8 invert" />
       </button>
-      <Suspense>
+      <Suspense fallback={<SidePanelSkeleton />}>
         <AirPollution {...props} />
       </Suspense>
     </div>
