@@ -16,13 +16,12 @@ import HourlySkeleton from "./components/skeletons/HourlySkeleton";
 import AddiotionalInfoSkeleton from "./components/skeletons/AdditionalInfoSkeleton";
 import SidePanel from "./components/SidePanel";
 import Hamburger from "/src/assets/hamburger.svg?react";
-import SidePanelSkeleton from "./components/skeletons/SidePanelSkeleton";
 
 function App() {
   const [coordinates, setCoords] = useState<Coords>({ lat: 50, lon: 50 });
   const [location, setLocation] = useState("Tokyo");
   const [mapType, setMapType] = useState<string | null>(null);
-  const [isSidePanelOpen, setIsSidePanelOpen] = useState(true);
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
 
   const { data: geoCodeData } = useQuery({
     queryKey: ["geoCode", location],
@@ -44,7 +43,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 w-full lg:w-[calc(100dvw-var(--sidebar-width))]">
         <div className="flex gap-8">
           <div className="flex gap-4">
             <h1 className="text-2xl font-semibold">Location: </h1>
@@ -55,7 +54,7 @@ function App() {
             <MapTypeDropdown mapType={mapType} setMapType={setMapType} />
           </div>
           <button onClick={() => setIsSidePanelOpen(true)}>
-            <Hamburger className="size-8 invert" />
+            <Hamburger className="size-8 invert lg:hidden" />
           </button>
         </div>
         <div className="relative">
