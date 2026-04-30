@@ -16,6 +16,7 @@ import HourlySkeleton from "./components/skeletons/HourlySkeleton";
 import AddiotionalInfoSkeleton from "./components/skeletons/AdditionalInfoSkeleton";
 import SidePanel from "./components/SidePanel";
 import Hamburger from "/src/assets/hamburger.svg?react";
+import MobileHeader from "./components/MobileHeader";
 
 function App() {
   const [coordinates, setCoords] = useState<Coords>({ lat: 50, lon: 50 });
@@ -43,8 +44,9 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col gap-8 w-full lg:w-[calc(100dvw-var(--sidebar-width))] 2xl:h-screen">
-        <div className="flex gap-8">
+      <MobileHeader setIsSidePanelOpen={setIsSidePanelOpen} />
+      <div className="flex flex-col gap-8 pt-4 p-8 lg:w-[calc(100dvw-var(--sidebar-width))] 2xl:h-screen">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-4">
           <div className="flex gap-4">
             <h1 className="text-2xl font-semibold">Location: </h1>
             <LocationDropdown location={location} setLocation={setLocation} />
@@ -53,8 +55,11 @@ function App() {
             <h1 className="text-2xl font-semibold">Overlay: </h1>
             <MapTypeDropdown mapType={mapType} setMapType={setMapType} />
           </div>
-          <button onClick={() => setIsSidePanelOpen(true)}>
-            <Hamburger className="size-8 invert lg:hidden" />
+          <button
+            onClick={() => setIsSidePanelOpen(true)}
+            className="sd: block"
+          >
+            <Hamburger className="size-8 invert hidden md:block lg:hidden" />
           </button>
         </div>
         <div className="grid grid-cols-1 2xl:flex-1 2xl:min-h-0 md:grid-cols-2 2xl:grid-cols-4 2xl:grid-rows-4 gap-4">

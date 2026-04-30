@@ -15,7 +15,7 @@ export default function MapLegend({ mapType }: Props) {
     .join(", ");
 
   return (
-    <div className="absolute top-4 right-4 z-1000 w-96 rounded-xl shadow-lg p-4 bg-black/50 border border-white/70 flex flex-col gap-4 ">
+    <div className="absolute top-4 right-4 z-1000 w-48 md:w-96 rounded-xl shadow-lg p-4 bg-black/50 border border-white/70 flex flex-col gap-4 ">
       <h3 className="text-sm font-semibold text-white">{data.label}</h3>
       <div
         className="w-full h-6 rounded-xl border border-white/70"

@@ -16,13 +16,13 @@ export default function Dropdown({ buttonLabel, items }: DropdownProps) {
     setOpen((prev) => !prev);
   };
   return (
-    <div className="z-1001">
+    <div className="z-1001 relative">
       <button
         type="button"
-        className="inline-flex items-center justify-center rounded-md text-sm border border-zinc-900 h-10 px-4 py-2"
+        className="inline-flex w-40 items-center justify-between rounded-md text-sm border border-zinc-900 h-10 px-4 py-2"
         onClick={handleToggle}
       >
-        {buttonLabel}
+        <span>{buttonLabel}</span>
         <span>
           {open ? (
             <ArrowUp className="size-8 invert" />
@@ -32,7 +32,7 @@ export default function Dropdown({ buttonLabel, items }: DropdownProps) {
         </span>
       </button>
       {open && (
-        <div className="absolute top-12">
+        <div className="absolute top-12 z-1002">
           <ul className="w-56 h-auto shadow-md rounded-md p-1 bg-zinc-900">
             {items.map((item, index) => (
               <li
