@@ -25,6 +25,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --svg-filter: invert(1);
 }
 
 :root:not(.dark) {

@@ -12,7 +12,7 @@ export default function LightDarkToggle() {
         checked={theme === "dark"}
         onChange={toggleTheme}
         icons={{
-          unchecked: <Sun className="size-5 dark:invert" />,
+          unchecked: <Sun className="size-5" />,
           checked: <Moon className="size-5 var(--icon-filter)" />,
         }}
       ></Switch>

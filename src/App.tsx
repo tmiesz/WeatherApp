@@ -62,7 +62,7 @@ function App() {
               onClick={() => setIsSidePanelOpen(true)}
               className="sd: block"
             >
-              <Hamburger className="size-8 dark:invert hidden md:block lg:hidden" />
+              <Hamburger className="size-8 hidden md:block lg:hidden" />
             </button>
           </div>
         </div>

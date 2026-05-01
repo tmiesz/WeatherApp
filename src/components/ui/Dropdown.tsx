@@ -25,9 +25,9 @@ export default function Dropdown({ buttonLabel, items }: DropdownProps) {
         <span>{buttonLabel}</span>
         <span>
           {open ? (
-            <ArrowUp className="size-8 dark:invert" />
+            <ArrowUp className="size-8" />
           ) : (
-            <ArrowDown className="size-8 dark:invert" />
+            <ArrowDown className="size-8" />
           )}
         </span>
       </button>

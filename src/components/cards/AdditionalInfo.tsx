@@ -29,7 +29,7 @@ export default function AdditionalInfo({ coords }: Props) {
         <div className="flex justify-between" key={value}>
           <div className="flex gap-4">
             <span className="text-gray-500">{label}</span>
-            <Icon className="size-8 dark:invert" />
+            <Icon className="size-8" />
           </div>
           <span>
             <FormatComponent value={value} number={data.daily[value][0]} />
@@ -60,7 +60,7 @@ function FormatComponent({
   if (value === "wind_direction_10m_dominant") {
     return (
       <Direction
-        className="size-8 dark:invert"
+        className="size-8"
         style={{ transform: `rotate(${number}deg)` }}
       />
     );
