@@ -6,9 +6,9 @@ type Props = {
 };
 export default function MobileHeader({ setIsSidePanelOpen }: Props) {
   return (
-    <div className="w-full h-16 p-4 bg-zinc-900 sticky top-0 md:hidden flex justify-end z-1001">
+    <div className="w-full h-16 p-4 bg-(--sidebar-bg) border-b border-(--border) sticky top-0 md:hidden flex justify-end z-1001">
       <button onClick={() => setIsSidePanelOpen(true)} className="sd: block">
-        <Hamburger className="size-8 invert lg:hidden" />
+        <Hamburger className="size-8 dark:invert lg:hidden" />
       </button>
     </div>
   );

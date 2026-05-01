@@ -19,12 +19,12 @@ export default function SidePanel(props: Props) {
   return (
     <div
       className={clsx(
-        "fixed top-0 right-0 h-screen w-(--sidebar-width) shadow-md bg-zinc-900 z-1001 py-8 px-4 flex flex-col transition-transform duration-300 lg:translate-x-0!",
+        "fixed top-0 right-0 h-screen w-(--sidebar-width) shadow-md bg-(--code-bg) z-1001 py-8 px-4 flex flex-col transition-transform duration-300 lg:translate-x-0!",
         isSidePanelOpen ? "translate-x-0" : "translate-x-full",
       )}
     >
       <button onClick={() => setIsSidePanelOpen(false)}>
-        <Chevron className="size-8 invert lg:hidden" />
+        <Chevron className="size-8 dark:invert lg:hidden" />
       </button>
       <Suspense fallback={<SidePanelSkeleton />}>
         <AirPollution {...props} />
@@ -52,7 +52,7 @@ function AirPollution({ coords }: Props) {
           <Card
             key={key}
             childrenClassName="flex flex-col gap-3"
-            className="w-full text-center hover:scale-105 transition-transform duration-300 from-zinc-800! to-zinc-900/60!"
+            className="w-full text-center hover:scale-105 transition-transform duration-300 from-(--code-bg)! to-(--bg)!"
           >
             <div className="flex justify-between">
               <span className="text-lg capitalize">
@@ -87,8 +87,8 @@ function AirPollution({ coords }: Props) {
                           className={clsx(
                             "px-1 py-1 rounded-md text-xs font-medium whitespace-nowrap",
                             index === qualityIndex
-                              ? "bg-zinc-200 text-black"
-                              : "bg-zinc-700",
+                              ? "bg-(--accent) text-white"
+                              : "bg-(--border) text-(--text)",
                           )}
                         >
                           {label}

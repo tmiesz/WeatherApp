@@ -8,7 +8,7 @@ export default function SideCardSkeleton() {
         <Card
           key={i}
           childrenClassName="flex flex-col gap-3"
-          className="w-full text-center from-zinc-800! to-zinc-900/60!"
+          className="w-full text-center from-(--card-bg-alt-from)! to-(--card-bg-alt-to)!"
         >
           <div className="flex justify-between">
             <Skeleton className="w-24 h-8" />
