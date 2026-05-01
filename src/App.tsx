@@ -45,7 +45,7 @@ function App() {
   return (
     <>
       <MobileHeader setIsSidePanelOpen={setIsSidePanelOpen} />
-      <div className="flex flex-col gap-8 pt-4 p-8 lg:w-[calc(100dvw-var(--sidebar-width))] 2xl:h-screen">
+      <div className="flex flex-col gap-8 pt-4 p-8 lg:w-[calc(100dvw-var(--sidebar-width))] 2xl:h-screen 2xl:min-h-280">
         <div className="flex flex-col md:flex-row gap-2 md:gap-4">
           <div className="flex gap-4">
             <h1 className="text-2xl font-semibold">Location: </h1>
